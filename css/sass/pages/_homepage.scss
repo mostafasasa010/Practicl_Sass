@@ -1,0 +1,836 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+
+:root {
+  --main-color: #ff9800;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  @include prefixer(box-sizing, border-box, webkit moz);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  scroll-behavior: smooth;
+  width: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+::-webkit-scrollbar-track {
+  background-color: #eee;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.landing-page {
+  background-image: url(../../../imgs/01.jpg);
+  background-size: cover;
+  min-height: 100vh;
+  position: relative;
+  transition: 0.3s;
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / .6);
+    z-index: 1;
+  }
+  .landing-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
+    z-index: 2;
+    @include phones {
+      width: 80%;
+    }
+    @include tablets {
+      width: 80%;
+      z-index: 1;
+    }
+    @include laptops {
+      width: 80%;
+    }
+    h2 {
+      font-size: 34px;
+      margin: 0;
+      margin-bottom: 20px;
+      @include phones {
+        font-size: 22px;
+      }
+      span {
+        color: var(--main-color);
+      }
+    }
+    p {
+      line-height: 1.6;
+      margin: 0;
+      font-size: 19px;
+      @include phones {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.about-us {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 0;
+  @include phones {
+    flex-direction: column;
+  }
+  @include tablets {
+    flex-direction: column;
+  }
+  .info-box {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    @include phones {
+      width: 100%;
+    }
+    @include tablets{
+      width: 100%;
+    }
+    h2 {
+      width: 100%;
+      color: var(--main-color);
+      margin: 0 0 30px;
+      text-align: center;
+      font-size: 26px;
+    }
+    p {
+      width: 100%;
+      line-height: 1.8;
+      margin: 0;
+      color: #333;
+      font: {
+        size: 18px;
+      }
+      @include phones {
+        text-align: center;
+        line-height: 1.6;
+        font: {
+          weight: bold;
+          size: 16px;
+        }
+      }
+      @include tablets {
+        text-align: center;
+        line-height: 1.6;
+        font: {
+          weight: bold;
+          size: 17px;
+        }
+      }
+      @include laptops {
+        text-align: center;
+      }
+    }
+  }
+  img {
+    width: 40%;
+    float: right;
+    @include phones {
+      width: 100%;
+      float: none;
+    }
+    @include tablets {
+      width: 100%;
+      float: none;
+    }
+  }
+}
+
+.our-skills {
+  background-color: #eee;
+  padding-top: 40px;
+  padding-bottom: 50px;
+  h2 {
+    margin: 0 auto 30px;
+    color: var(--main-color);
+    text-align: center;
+    padding: 30px;
+  }
+}
+
+.our-gallery {
+  padding-bottom: 50px;
+  h2 {
+    color: var(--main-color);
+    text-align: center;
+    margin: 40px 0;
+    font-size: 26px;
+  }
+  .imgs-box {
+    text-align: center;
+    img {
+      padding: 3px;
+      background-color: #fff;
+      border: 2px solid var(--main-color);
+      width: 200px;
+      margin: 5px;
+      cursor: pointer;
+      position: relative;
+      transition: 0.3s;
+      transition: 0.5s;
+      @include phones {
+        width: 100%;
+      }
+      @include tablets {
+        width: 100%;
+      }
+      &:hover {
+        background-color: var(--main-color);
+      }
+    }
+  }
+}
+
+.overlay-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.3;
+  transition: 0.5s;
+  z-index: 1000;
+}
+.popup-div {
+  position: fixed;
+  width: 500px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--main-color);
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 6px 0 6px 6px;
+  @include phones {
+    width: 70%;
+  }
+  > img {
+    width: 100%;
+    padding: 5px;
+    background-color: #fff;
+  }
+  .close-btn {
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border-radius: 0 6px 6px 0;
+    top: 0;
+    right: -30px;
+    background-color: var(--main-color);
+    font: {
+      size: 17px;
+      weight: bold;
+    }
+    cursor: pointer;
+    @include phones {
+      top: -30px;
+      right: 0;
+      border-radius: 6px 6px 0 0;
+    }
+  }
+}
+
+.timeline {
+  background-color: #eee;
+  padding-bottom: 50px;
+  padding-top: 30px;
+  min-height: 100vh;
+  .content {
+    width: 100%;
+    height: 100%;
+    padding-top: 30px;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 100%;
+      background-color: var(--main-color);
+      z-index: 1;
+      @include phones {
+        display: none;
+      }
+      @include tablets {
+        display: none;
+      }
+      @include laptops {
+        display: none;
+      }
+    }
+    h3 {
+      position: relative;
+      background-color: var(--main-color);
+      color: #fff;
+      width: 80px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 15px auto;
+      border-radius: 10px;
+      border: 5px solid #eee;
+      z-index: 2;
+    }
+    .left {
+      position: relative;
+      width: 47%;
+      height: 175px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      @include phones {
+        width: 100%;
+      }
+      @include tablets {
+        width: 100%;
+      }
+      @include laptops {
+        width: 100%;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        border-style: solid;
+        border-color: transparent transparent transparent #fff;
+        border-width: 10px;
+        top: 10px;
+        right: -19px;
+        z-index: 10;
+        @include phones {
+          display: none;
+        }
+        @include tablets {
+          display: none;
+        }
+        @include laptops {
+          display: none;
+        }
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: #fff;
+        border-radius: 50%;
+        right: -9%;
+        z-index: 10;
+        top: 7px;
+        border: 4px solid var(--main-color);
+        @include phones {
+          display: none;
+        }
+        @include tablets {
+          display: none;
+        }
+        @include laptops {
+          display: none;
+        }
+      }
+      h4 {
+        margin: 0 0 15px;
+        color: var(--main-color);
+        @include phones {
+          margin-bottom: 10px;
+        }
+        @include tablets {
+          margin-bottom: 10px;
+        }
+        @include laptops {
+          margin-bottom: 10px;
+          font-size: 20px;
+        }
+      }
+      p {
+        color: #333;
+        font-size: 16px;
+        line-height: 1.5;
+        margin: 0;
+        @include phones {
+          font-size: 14px;
+          line-height: 1.3;
+        }
+        @include tablets {
+          font-size: 16px;
+          line-height: 1.6;
+        }
+        @include laptops {
+          font-size: 20px;
+          line-height: 1.6;
+        }
+      }
+    }
+    .right {
+      position: relative;
+      width: 47%;
+      height: 175px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      right: -53%;
+      @include phones {
+        width: 100%;
+        right: 0;
+      }
+      @include tablets {
+        width: 100%;
+        right: 0;
+      }
+      @include laptops {
+        width: 100%;
+        right: 0;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        border-style: solid;
+        border-color: transparent #fff transparent transparent;
+        border-width: 10px;
+        top: 10px;
+        left: -19px;
+        z-index: 10;
+        @include phones {
+          display: none;
+        }
+        @include tablets {
+          display: none;
+        }
+        @include laptops {
+          display: none;
+        }
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: #fff;
+        border-radius: 50%;
+        left: -9%;
+        z-index: 10;
+        top: 7px;
+        border: 4px solid var(--main-color);
+        @include phones {
+          display: none;
+        }
+        @include tablets {
+          display: none;
+        }
+        @include laptops{
+          display: none;
+        }
+      }
+      h4 {
+        margin: 0 0 15px;
+        color: var(--main-color);
+        @include phones {
+          margin-bottom: 10px;
+        }
+        @include tablets {
+          margin-bottom: 10px;
+        }
+        @include laptops {
+          margin-bottom: 10px;
+          font-size: 20px;
+        }
+      }
+      p {
+        color: #333;
+        font-size: 16px;
+        line-height: 1.5;
+        margin: 0;
+        @include phones {
+          font-size: 14px;
+          line-height: 1.3;
+        }
+        @include tablets {
+          font-size: 16px;
+          line-height: 1.6;
+        }
+        @include laptops {
+          font-size: 20px;
+          line-height: 1.6;
+        }
+      }
+    }
+  }
+}
+
+.our-features {
+  padding-bottom: 50px;
+  h2 {
+    color: var(--main-color);
+    text-align: center;
+    margin: 40px 0;
+    font-size: 26px;
+  }
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2%;
+    width: 100%;
+    @include phones {
+      flex-direction: column;
+    }
+    @include tablets {
+      flex-direction: column;
+    }
+    .feat-box {
+      width: (96% / 3);
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 6px;
+      margin-bottom: 2%;
+      transition: 0.3s;
+      @include phones {
+        width: 100%;
+      }
+      @include tablets {
+        width: 100%;
+      }
+      @include laptops {
+        width: (98% / 2);
+      }
+      &:hover {
+        background-color: #f6f6f6;
+      }
+      .image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 4px solid #fff;
+        outline: 4px solid #e1e1e1;
+        background-color: #e1e1e1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        transition: 0.3s;
+        margin-top: 10px;
+        img {
+          width: 80px;
+        }
+      }
+      h4 {
+        font-size: 22px;
+        text-align: center;
+        margin: 20px 0 40px;
+        position: relative;
+        &::before {
+          content: "";
+          width: 40px;
+          height: 4px;
+          background-color: var(--main-color);
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          bottom: -22px;
+        }
+      }
+      p {
+        width: 80%;
+        text-align: center;
+        line-height: 1.7;
+        font: {
+          size: 17px;
+          weight: bold;
+        }
+        color: #333;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+.testimonials {
+  position: relative;
+  padding: 50px 0;
+  &::before,
+  &::after {
+    content: "";
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+  }
+  &::before {
+    background-color: var(--main-color);
+    left: 0;
+  }
+  &::after {
+    background-color: #333;
+    right: 0;
+  }
+  h2 {
+    color: #fff;
+    text-align: left;
+    margin: 0 0 30px;
+    font-size: 26px;
+  }
+  .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2%;
+    @include phones {
+      flex-direction: column;
+    }
+    @include tablets {
+      flex-direction: column;
+    }
+    .t-box {
+      width: (96% / 3);
+      padding: 15px;
+      background-color: #fff;
+      @include phones {
+        width: 100%;
+        &:not(:last-of-type) {
+          margin-bottom: 10px;
+        }
+      }
+      @include tablets {
+        width: 100%;
+        &:not(:last-of-type) {
+          margin-bottom: 10px;
+        }
+      }
+      @include laptops {
+        width: (98% / 2);
+        margin-bottom: 2%;
+      }
+      > p {
+        margin: 0;
+        font-style: italic;
+        line-height: 1.5;
+        color: #333;
+        margin-bottom: 15px;
+      }
+      .p-box {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        img {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+        }
+        .text {
+          margin-left: 15px;
+          h4 {
+            margin: 0 0 10px;
+          }
+          p {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.up {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main-color);
+  cursor: pointer;
+  z-index: 1000;
+  display: none;
+  > span {
+    color: #fff;
+    margin-right: 4px;
+    font: {
+      size: 18px;
+      weight: bold;
+    }
+  }
+  > i {
+    color: #fff;
+    font-size: 18px;
+  }
+}
+
+.scroller {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--main-color);
+  width: 0;
+  height: 6px;
+  z-index: 1000;
+}
+
+.contact-us {
+  position: relative;
+  padding: 60px 0;
+  background-image: url(../../../imgs/map.jpg);
+  background-size: cover;
+  min-height: 560px;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.05;
+    z-index: 1;
+  }
+  h2 {
+    position: relative;
+    color: var(--main-color);
+    text-align: center;
+    margin: 0 0 50px;
+    font-size: 26px;
+    z-index: 2;
+    @include phones {
+      margin-bottom: 30px;
+    }
+  }
+  .content {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+    @include phones {
+      flex-direction: column;
+      overflow: visible;
+    }
+    .left {
+      display: flex;
+      flex-direction: column;
+      width: 49%;
+      margin-right: 2%;
+      @include phones {
+        width: 100%;
+      }
+      input {
+        width: 100%;
+        border: 2px solid #b2b2b2;
+        height: (94% / 4);
+        padding-left: 15px;
+        opacity: 0.8;
+        @include phones {
+          padding: 10px;
+        }
+        &::placeholder {
+          color: #979797;
+          font-weight: bold;
+        }
+        &:focus {
+          outline: none;
+        }
+        &:not(:last-of-type) {
+          margin-bottom: 2%;
+        }
+      }
+    }
+    .right {
+      width: 49%;
+      display: flex;
+      flex-direction: column;
+      @include phones {
+        width: 100%;
+        margin-top: 10px;
+      }
+      textarea {
+        width: 100%;
+        height: 78%;
+        resize: none;
+        border: 2px solid #b2b2b2;
+        padding: 10px;
+        margin-bottom: 2%;
+        opacity: 0.8;
+        @include phones {
+          height: 150px;
+        }
+        &::placeholder {
+          color: #979797;
+          font-weight: bold;
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+      .btn {
+        background-color: var(--main-color);
+        padding: 10px 15px;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 23%;
+        font: {
+          size: 17px;
+          weight: bold;
+        }
+        cursor: pointer;
+      }
+    }
+  }
+}

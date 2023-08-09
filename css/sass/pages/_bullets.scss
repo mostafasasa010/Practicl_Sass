@@ -1,0 +1,48 @@
+.bullets {
+  position: fixed;
+  width: 40px;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  .bullet {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin: 15px auto;
+    border-radius: 50%;
+    border: 3px solid var(--main-color);
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      background-color: var(--main-color);
+    }
+    &:hover .tooltip {
+      display: block;
+    }
+    .tooltip {
+      display: none;
+      padding: 6px 12px;
+      position: absolute;
+      right: 32px;
+      width: 125px;
+      background-color: var(--main-color);
+      color: #fff;
+      text-align: center;
+      top: -7px;
+      pointer-events: none;
+      cursor: default;
+      &::before {
+        content: "";
+        position: absolute;
+        border-style: solid;
+        border-color: transparent transparent transparent var(--main-color);
+        border-width: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        right: -19px;
+        z-index: 10;
+      }
+    }
+  }
+}

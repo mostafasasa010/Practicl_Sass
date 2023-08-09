@@ -1,0 +1,61 @@
+.skill-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 6px;
+  @include phones {
+    padding: 15px;
+  }
+  @include tablets {
+    padding: 15px;
+  }
+  &:not(:last-of-type) {
+    margin-bottom: 15px;
+  }
+  .skill-name {
+    justify-self: left;
+    color: var(--main-color);
+    font: {
+      size: 17px;
+      weight: bold;
+    }
+    @include phones {
+      font-size: 15px;
+    }
+    @include tablets {
+      font-size: 15px;
+    }
+  }
+  .progress {
+    width: 88%;
+    height: 40px;
+    position: relative;
+    border-radius: 6px;
+    background-color: #eee;
+    justify-self: right;
+    overflow: hidden;
+    @include phones {
+      width: 70%;
+      height: 30px;
+    }
+    @include tablets {
+      width: 80%;
+      height: 30px;
+    }
+    @include laptops {
+      width: 85%;
+    }
+    .progress-bar {
+      height: 100%;
+      width: 0;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: var(--main-color);
+      transition: 0.5s;
+    }
+  }
+}
