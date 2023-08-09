@@ -97,7 +97,7 @@ function randomaizeImg() {
     backgroundInterval = setInterval(() => {
       let randomNum = Math.floor(Math.random() * arrayImgs.length);
 
-      landingPage.style.backgroundImage = `url(../imgs/0${randomNum + 1}.jpg)`;
+      landingPage.style.backgroundImage = `url(imgs/0${randomNum + 1}.jpg)`;
     }, 10000);
   }
 }
