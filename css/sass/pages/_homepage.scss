@@ -398,12 +398,12 @@ a {
         line-height: 1.5;
         margin: 0;
         @include phones {
-          font-size: 14px;
+          font-size: 15px;
           line-height: 1.3;
         }
         @include tablets {
-          font-size: 16px;
-          line-height: 1.6;
+          font-size: 15px;
+          line-height: 1.5;
         }
         @include laptops {
           font-size: 20px;
@@ -493,12 +493,12 @@ a {
         line-height: 1.5;
         margin: 0;
         @include phones {
-          font-size: 14px;
+          font-size: 15px;
           line-height: 1.3;
         }
         @include tablets {
-          font-size: 16px;
-          line-height: 1.6;
+          font-size: 15px;
+          line-height: 1.5;
         }
         @include laptops {
           font-size: 20px;
