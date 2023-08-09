@@ -1330,7 +1330,7 @@ a {
 .contact-us {
   position: relative;
   padding: 60px 0;
-  background-image: url(imgs/map.jpg);
+  background-image: url(/imgs/map.jpg);
   background-size: cover;
   min-height: 560px;
 }
