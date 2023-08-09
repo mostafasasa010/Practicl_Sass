@@ -959,8 +959,8 @@ a {
 }
 @media (max-width: 480px) {
   .timeline .content .left p {
-    font-size: 15px;
-    line-height: 1.3;
+    font-size: 14px;
+    line-height: 1.2;
   }
 }
 @media (min-width: 481px) and (max-width: 767px) {
@@ -1084,8 +1084,8 @@ a {
 }
 @media (max-width: 480px) {
   .timeline .content .right p {
-    font-size: 15px;
-    line-height: 1.3;
+    font-size: 14px;
+    line-height: 1.2;
   }
 }
 @media (min-width: 481px) and (max-width: 767px) {
